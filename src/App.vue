@@ -1,5 +1,5 @@
 <template>
-  <main id="app">
+  <div id="app">
     <AgencyHeader/>
     <div id="background-main">
       <span id="text-background-main">
@@ -11,16 +11,46 @@
         alt="arrow background image"
       />
     </div>
-  </main>
+    <div id="quite">
+      <AgencyCard
+        colorBorder="blue"
+      >
+        <template #title>
+          <h1 class="title-card">Transform your brand</h1>
+        </template>
+        <template #paragraph>
+          <p class="paragraph-card">We are a full-service agency specializing in helping brands grow fast. Engage your clients through compelling visuals that do most of the marketing for you.</p>
+        </template>
+      </AgencyCard>
+    </div>
+  </div>
 </template>
 
 <script>
   import AgencyHeader from './components/AgencyHeader.vue';
+  import AgencyCard from './components/AgencyCard.vue';
 
   export default {
     name: 'App',
     components: {
       AgencyHeader,
+      AgencyCard,
+    },
+    data() {
+      return {
+        cards: [
+          {
+            id: 1,
+            title: "",
+            paragraph: ""
+          },
+          {
+            id: 2,
+            title: "Stand out to the right audience",
+            paragraph: "Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we'll build and extend your brand in digital places."
+          }
+        ]
+      }
     }
   }
 
@@ -34,6 +64,7 @@
     --dark-desaturated-cyan: hsl(167, 40%, 24%);
     --dark-blue: hsl(198, 62%, 26%);
     --dark-moderate-cyan: hsl(168, 34%, 41%);
+    --black: #000000;
   
     /* Neutral */
     --very-dark-desaturated-blue: hsl(212, 27%, 19%);
@@ -50,10 +81,15 @@
     font-family: Barlow, Helvetica, Arial;
   }
 
-  main#app {
+  div#app {
     width: 100%;
 
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   div#background-main {
@@ -61,8 +97,11 @@
     background-size: cover;
     background-position: center 100%;
 
-    width: 100%;
     height: 700px;
+  }
+
+  div#background-main, div#quite {
+    width: 100%;
   }
 
   img#arrow {
@@ -78,14 +117,34 @@
   span#text-background-main {
     color: var(--white);
     
-    font-family: Fraunces, Helvetica, Arial;
 
     top: 25%;
 
-    letter-spacing: 7.5px;
+    letter-spacing: 7px;
 
     text-align: center;
 
     font-size: 50px;
+  }
+
+  h1.title-card {
+    font-size: 35px;
+    font-weight: bold;
+
+    width: 350px;
+
+    margin-bottom: 35px;
+  }
+  
+  span#text-background-main, 
+  h1.title-card, 
+  p.paragraph-card {
+    font-family: Fraunces, Helvetica, Arial;
+  }
+
+  p.paragraph-card {
+    color: var(--dark-grayish-blue);
+
+    margin-bottom: 45px;
   }
 </style>

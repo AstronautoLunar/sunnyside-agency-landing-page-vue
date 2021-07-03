@@ -102,5 +102,7 @@
         font-size: 15px;
 
         transition: all 0.2s;
+
+        cursor: pointer;
     }
 </style>
