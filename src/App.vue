@@ -13,13 +13,33 @@
     </div>
     <div id="quite">
       <AgencyCard
-        colorBorder="blue"
+        colorBorder="hsl(51, 100%, 49%)"
       >
         <template #title>
           <h1 class="title-card">Transform your brand</h1>
         </template>
         <template #paragraph>
           <p class="paragraph-card">We are a full-service agency specializing in helping brands grow fast. Engage your clients through compelling visuals that do most of the marketing for you.</p>
+        </template>
+      </AgencyCard>
+      <img
+        class="image-main"
+        src="./assets/desktop/image-transform.jpg"
+        alt="image egg main"
+      />
+      <img
+        class="image-main"
+        src="./assets/desktop/image-stand-out.jpg"
+        alt="image glass main"
+      />
+      <AgencyCard
+        colorBorder="hsl(7, 99%, 70%)"
+      >
+        <template #title>
+          <h1 class="title-card">Stand out to the right audience</h1>
+        </template>
+        <template #paragraph>
+          <p class="paragraph-card">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we'll build and extend your brand in digital places.</p>
         </template>
       </AgencyCard>
     </div>
@@ -35,22 +55,6 @@
     components: {
       AgencyHeader,
       AgencyCard,
-    },
-    data() {
-      return {
-        cards: [
-          {
-            id: 1,
-            title: "",
-            paragraph: ""
-          },
-          {
-            id: 2,
-            title: "Stand out to the right audience",
-            paragraph: "Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we'll build and extend your brand in digital places."
-          }
-        ]
-      }
     }
   }
 
@@ -86,10 +90,13 @@
 
     position: relative;
 
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  div#app, div#quite {
+    display: flex;
   }
 
   div#background-main {
@@ -98,6 +105,8 @@
     background-position: center 100%;
 
     height: 700px;
+
+    position: relative;
   }
 
   div#background-main, div#quite {
@@ -136,6 +145,10 @@
     margin-bottom: 35px;
   }
   
+  div#quite {
+    flex-wrap: wrap;
+  }
+
   span#text-background-main, 
   h1.title-card, 
   p.paragraph-card {
@@ -146,5 +159,9 @@
     color: var(--dark-grayish-blue);
 
     margin-bottom: 45px;
+  }
+
+  img.image-main {
+    width: 50%;
   }
 </style>
