@@ -1,17 +1,17 @@
 <template>
   <div id="app">
+      <div id="background-main">
+        <span id="text-background-main">
+          WE ARE CREATIVES
+        </span>
+        <img
+          id="arrow"
+          src="./assets/icon-arrow-down.svg"
+          alt="arrow background image"
+        />
+      </div>
     <AgencyHeader/>
-    <div id="background-main">
-      <span id="text-background-main">
-        WE ARE CREATIVES
-      </span>
-      <img
-        id="arrow"
-        src="./assets/icon-arrow-down.svg"
-        alt="arrow background image"
-      />
-    </div>
-    <div id="quite">
+    <main id="main" role="main">
       <AgencyCard
         colorBorder="hsl(51, 100%, 49%)"
       >
@@ -42,19 +42,52 @@
           <p class="paragraph-card">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we'll build and extend your brand in digital places.</p>
         </template>
       </AgencyCard>
-    </div>
+      <section 
+        class="section cards-image" 
+        role="section"
+      >
+        <AgencyCardImage>
+          <template #background-image>
+            <img
+              class="image-card"
+              src="./assets/desktop/image-graphic-design.jpg"
+              alt="image graphic design"
+            />
+          </template>
+          <h2 class="title-card-image">Graphic Design</h2>
+          <p class="paragraphy-card-image">
+            Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients´ attention
+          </p>
+        </AgencyCardImage>
+        <AgencyCardImage>
+          <template #background-image>
+            <img
+              class="image-card"
+              src="./assets/desktop/image-photography.jpg"
+              alt="image graphic design"
+            />
+          </template>
+          <h2 class="title-card-image">Photography</h2>
+          <p class="paragraphy-card-image">
+            Increase your credibility by getting the most stunning, high-quality photos that improve your business image.
+          </p>
+        </AgencyCardImage>
+      </section>
+    </main>
   </div>
 </template>
 
 <script>
   import AgencyHeader from './components/AgencyHeader.vue';
   import AgencyCard from './components/AgencyCard.vue';
+  import AgencyCardImage from './components/AgencyCardImage.vue';
 
   export default {
     name: 'App',
     components: {
       AgencyHeader,
       AgencyCard,
+      AgencyCardImage,
     }
   }
 
@@ -95,7 +128,7 @@
     align-items: center;
   }
 
-  div#app, div#quite {
+  div#app, main#main, section.cards-image {
     display: flex;
   }
 
@@ -109,7 +142,7 @@
     position: relative;
   }
 
-  div#background-main, div#quite {
+  div#background-main, main#main {
     width: 100%;
   }
 
@@ -125,7 +158,6 @@
 
   span#text-background-main {
     color: var(--white);
-    
 
     top: 25%;
 
@@ -145,13 +177,15 @@
     margin-bottom: 35px;
   }
   
-  div#quite {
+  main#main {
     flex-wrap: wrap;
   }
 
   span#text-background-main, 
   h1.title-card, 
-  p.paragraph-card {
+  p.paragraph-card,
+  h2.title-card-image, p.paragraphy-card-image
+  {
     font-family: Fraunces, Helvetica, Arial;
   }
 
@@ -163,5 +197,33 @@
 
   img.image-main {
     width: 50%;
+  }
+
+  section.cards-image {
+    width: 100%;
+  }
+
+  img.image-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+  }
+
+  h2.title-card-image {
+    font-size: 30px;
+  }
+
+  h2.title-card-image, p.paragraphy-card-image {
+    text-align: center;
+
+    opacity: 0.6;
+  }
+
+  p.paragraphy-card-image {
+    width: 400px;
+
+    line-height: 25px;
   }
 </style>
