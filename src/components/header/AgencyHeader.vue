@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import AgencyHeaderButton from './AgencyHeaderButton.vue';
+    import AgencyHeaderButton from '../header/AgencyHeaderButton.vue';
 
     export default {
         name: "AgencyHeader",

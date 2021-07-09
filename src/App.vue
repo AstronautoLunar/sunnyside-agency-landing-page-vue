@@ -73,14 +73,46 @@
           </p>
         </AgencyCardImage>
       </section>
+      <section id="cards-client-area">
+        <h2>CLIENT TESTIMONIALS</h2>
+        <div id="cards-clients">
+          <AgencyCardClient
+            v-for="( user, index ) in userComments"
+            :key="index"
+            :img-user="user.srcImage"
+            :comments-text="user.comments"
+            :name-user="user.userName"
+            :profession="user.profession"
+          />
+        </div>
+      </section>
+      <div id="images-spotlight">
+        <img
+          src="./assets/desktop/image-gallery-milkbottles.jpg"
+          alt="image galley milkbottle"
+        />
+        <img
+          src="./assets/desktop/image-gallery-orange.jpg"
+          alt="image galley orange"
+        />
+        <img
+          src="./assets/desktop/image-gallery-cone.jpg"
+          alt="image gallery cone"
+        />
+        <img
+          src="./assets/desktop/image-gallery-sugarcubes.jpg"
+          alt="image gallery sugarcubes"
+        />
+      </div>
     </main>
   </div>
 </template>
 
 <script>
-  import AgencyHeader from './components/AgencyHeader.vue';
-  import AgencyCard from './components/AgencyCard.vue';
-  import AgencyCardImage from './components/AgencyCardImage.vue';
+  import AgencyHeader from './components/header/AgencyHeader.vue';
+  import AgencyCard from './components/main/AgencyCard.vue';
+  import AgencyCardImage from './components/main/AgencyCardImage.vue';
+  import AgencyCardClient from './components/main/AgencyCardClient.vue';
 
   export default {
     name: 'App',
@@ -88,6 +120,31 @@
       AgencyHeader,
       AgencyCard,
       AgencyCardImage,
+      AgencyCardClient,
+    },
+    data() {
+      return {
+        userComments: [
+          {
+            srcImage: "image-emily.jpg",
+            comments: "We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.",
+            userName: "Emily R.",
+            profession: "Marketing Director"
+          },
+          {
+            srcImage: "image-thomas.jpg",
+            comments: "Sunnyside´s enthusiasm coupled with their keen interest in our brand's success made it a satisfying and enjoyable experience.",
+            userName: "Thomas S.",
+            profession: "Chief Operating Officer"
+          },
+          {
+            srcImage: "image-jennie.jpg",
+            comments: "Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!",
+            userName: "Jennie F.",
+            profession: "Business Owner"
+          },
+        ]
+      }
     }
   }
 
@@ -119,8 +176,6 @@
   }
 
   div#app {
-    width: 100%;
-
     position: relative;
 
     flex-direction: column;
@@ -128,7 +183,13 @@
     align-items: center;
   }
 
-  div#app, main#main, section.cards-image {
+  div#app, 
+  main#main, 
+  section.cards-image, 
+  section#cards-client-area,
+  div#cards-clients,
+  div#images-spotlight
+  {
     display: flex;
   }
 
@@ -142,7 +203,14 @@
     position: relative;
   }
 
-  div#background-main, main#main {
+  div#background-main, 
+  main#main, 
+  div#app,
+  img.image-card,
+  section#cards-client-area,
+  div#cards-clients,
+  div#images-spotlight
+  {
     width: 100%;
   }
 
@@ -150,7 +218,9 @@
     bottom: 35%;
   }
 
-  img#arrow, span#text-background-main {
+  img#arrow, 
+  span#text-background-main 
+  {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -184,7 +254,9 @@
   span#text-background-main, 
   h1.title-card, 
   p.paragraph-card,
-  h2.title-card-image, p.paragraphy-card-image
+  h2.title-card-image, 
+  p.paragraphy-card-image,
+  section#cards-client-area
   {
     font-family: Fraunces, Helvetica, Arial;
   }
@@ -207,15 +279,15 @@
     position: absolute;
     top: 0;
     left: 0;
-
-    width: 100%;
   }
 
   h2.title-card-image {
     font-size: 30px;
   }
 
-  h2.title-card-image, p.paragraphy-card-image {
+  h2.title-card-image, 
+  p.paragraphy-card-image 
+  {
     text-align: center;
 
     opacity: 0.6;
@@ -225,5 +297,39 @@
     width: 400px;
 
     line-height: 25px;
+  }
+
+  section#cards-client-area {
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 150px 125px 100px;
+    box-sizing: border-box;
+
+    /* height: 250px; */
+  }
+
+  section#cards-client-area > h2 {
+    color: var(--grayish-blue);
+
+    letter-spacing: 10px;
+
+    font-size: 15px;
+
+    margin-bottom: 50px;
+  }
+
+  section#cards-client-area,
+  div#cards-clients
+  {
+    align-items: center;
+  }
+
+  div#cards-clients {
+    justify-content: space-around;
+  }
+
+  div#images-spotlight > img {
+    width: 25%;
   }
 </style>
