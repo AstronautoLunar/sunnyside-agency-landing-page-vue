@@ -105,6 +105,45 @@
         />
       </div>
     </main>
+    <footer id="footer" role="footer">
+      <h1
+        id="title-footer"
+      >sunnyside</h1>
+      <div id="area-links-text-footer">
+        <a
+          class="links-footer"
+          href="#"
+          v-for="( linkText, index ) in linksTextFooter"
+          :key="index"
+        >{{ linkText }}</a>
+      </div>
+      <div id="area-links-icon-footer">
+        <a href="#">
+          <img
+            src="./assets/icon-facebook.svg"
+            alt="link icon facebook"
+          />
+        </a>
+        <a href="#">
+          <img
+            src="./assets/icon-instagram.svg"
+            alt="link icon facebook"
+          />
+        </a>
+        <a href="#">
+          <img
+            src="./assets/icon-twitter.svg"
+            alt="link icon facebook"
+          />
+        </a>
+        <a href="#">
+          <img
+            src="./assets/icon-pinterest.svg"
+            alt="link icon facebook"
+          />
+        </a>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -143,6 +182,11 @@
             userName: "Jennie F.",
             profession: "Business Owner"
           },
+        ],
+        linksTextFooter: [ 
+          "About", 
+          "Services", 
+          "Projects" 
         ]
       }
     }
@@ -178,8 +222,11 @@
   div#app {
     position: relative;
 
-    flex-direction: column;
     justify-content: center;
+  }
+
+  div#app, footer#footer {
+    flex-direction: column;
     align-items: center;
   }
 
@@ -188,7 +235,10 @@
   section.cards-image, 
   section#cards-client-area,
   div#cards-clients,
-  div#images-spotlight
+  div#images-spotlight,
+  footer#footer,
+  div#area-links-text-footer,
+  div#area-links-icon-footer
   {
     display: flex;
   }
@@ -209,7 +259,8 @@
   img.image-card,
   section#cards-client-area,
   div#cards-clients,
-  div#images-spotlight
+  div#images-spotlight,
+  footer#footer
   {
     width: 100%;
   }
@@ -305,8 +356,6 @@
 
     padding: 150px 125px 100px;
     box-sizing: border-box;
-
-    /* height: 250px; */
   }
 
   section#cards-client-area > h2 {
@@ -320,16 +369,56 @@
   }
 
   section#cards-client-area,
-  div#cards-clients
+  div#cards-clients,
+  div#area-links-text-footer,
+  div#area-links-icon-footer
   {
     align-items: center;
   }
 
-  div#cards-clients {
+  div#cards-clients,
+  div#area-links-text-footer,
+  div#area-links-icon-footer
+  {
     justify-content: space-around;
   }
 
   div#images-spotlight > img {
     width: 25%;
+  }
+
+  footer#footer {
+    height: 300px;
+
+    background-color: var(--dark-moderate-cyan);
+
+    justify-content: space-evenly;
+  }
+
+  div#area-links-text-footer 
+  {
+    width: 400px;
+  }
+
+  h1#title-footer {
+    margin: 0;
+  }
+
+  h1#title-footer, 
+  a.links-footer 
+  {
+    color: var(--dark-desaturated-cyan);
+  }
+
+  a.links-footer {
+    text-decoration: none;
+  }
+
+  div#area-links-text-footer {
+    margin-bottom: 50px;
+  }
+
+  div#area-links-icon-footer {
+    width: 150px;
   }
 </style>
