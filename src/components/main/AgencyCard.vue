@@ -98,4 +98,26 @@
         position: absolute;
         top: -12px;
     }
+
+    /* Adaptações de tela */
+
+    @media screen and (max-width: 809px) {
+        section.AgencyCard > article, section.AgencyCard {
+            width: 100%;
+        }
+
+        section.AgencyCard {
+            height: auto;
+        }
+
+        section.AgencyCard > article {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            box-sizing: border-box;
+            padding: 20px;
+        }
+    }
 </style>

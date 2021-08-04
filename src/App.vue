@@ -24,12 +24,12 @@
       </AgencyCard>
       <img
         class="image-main"
-        src="./assets/desktop/image-transform.jpg"
+        src="./assets/mobile/image-transform.jpg"
         alt="image egg main"
       />
       <img
         class="image-main"
-        src="./assets/desktop/image-stand-out.jpg"
+        src="./assets/mobile/image-stand-out.jpg"
         alt="image glass main"
       />
       <AgencyCard
@@ -46,31 +46,13 @@
         class="section cards-image" 
         role="section"
       >
-        <AgencyCardImage>
-          <template #background-image>
-            <img
-              class="image-card"
-              src="./assets/desktop/image-graphic-design.jpg"
-              alt="image graphic design"
-            />
-          </template>
-          <h2 class="title-card-image">Graphic Design</h2>
-          <p class="paragraphy-card-image">
-            Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients´ attention
-          </p>
-        </AgencyCardImage>
-        <AgencyCardImage>
-          <template #background-image>
-            <img
-              class="image-card"
-              src="./assets/desktop/image-photography.jpg"
-              alt="image graphic design"
-            />
-          </template>
-          <h2 class="title-card-image">Photography</h2>
-          <p class="paragraphy-card-image">
-            Increase your credibility by getting the most stunning, high-quality photos that improve your business image.
-          </p>
+        <AgencyCardImage
+          v-for="card in agencyCardImage"
+          :key="card.id"
+          :backgroundImageSrc="card.backgroundImageSrc"
+          :title="card.title"
+          :paragraphy="card.paragraphy"
+        >
         </AgencyCardImage>
       </section>
       <section id="cards-client-area">
@@ -187,7 +169,21 @@
           "About", 
           "Services", 
           "Projects" 
-        ]
+        ],
+        agencyCardImage: [
+          {
+            id: 1,
+            backgroundImageSrc: "image-graphic-design.jpg",
+            title: "Graphic Design",
+            paragraphy: "Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients´ attention",
+          },
+          {
+            id: 2,
+            backgroundImageSrc: "image-photography.jpg",
+            title: "Photography",
+            paragraphy: "Increase your credibility by getting the most stunning, high-quality photos that improve your business image.",
+          }
+        ],
       }
     }
   }
@@ -256,7 +252,6 @@
   div#background-main, 
   main#main, 
   div#app,
-  img.image-card,
   section#cards-client-area,
   div#cards-clients,
   div#images-spotlight,
@@ -324,12 +319,6 @@
 
   section.cards-image {
     width: 100%;
-  }
-
-  img.image-card {
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 
   h2.title-card-image {
@@ -420,5 +409,26 @@
 
   div#area-links-icon-footer {
     width: 150px;
+  }
+
+  @media screen and (max-width: 809px) {
+    /* h1.title-card {
+      width: auto;
+      
+      margin-right: auto;
+    } */
+
+    main#main {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    img.image-main {
+      width: 100%;
+    }
+
+    h1.title-card, p.paragraph-card {
+      text-align: center;
+    }
   }
 </style>
