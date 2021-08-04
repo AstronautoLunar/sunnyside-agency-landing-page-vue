@@ -3,14 +3,24 @@
         <span id="logo">
             sunnyside
         </span>
-        <nav id="navigation-buttons">
-            <AgencyHeaderButton
-                v-for="button in buttonsHeader"
-                :key="button.id"
-                :textName="button.text"
-                :typeButton="button.type"
-            />
-        </nav>
+        <div 
+            id="nav-menu-desktop"
+            v-show="showMenuDesktop"
+        >
+            <nav id="navigation-buttons">
+                <AgencyHeaderButton
+                    v-for="button in buttonsHeader"
+                    :key="button.id"
+                    :textName="button.text"
+                    :typeButton="button.type"
+                />
+            </nav>
+        </div>
+        <div
+            v-show="showMenuMobile"
+        >
+            <h1>Hello World</h1>
+        </div>
     </header>
 </template>
 
@@ -45,8 +55,29 @@
                         text: "Contact",
                         type: "strong",
                     }
-                ]
+                ],
+                mediaQuerieList: matchMedia("(max-width: 650px)"),
+                showMenuDesktop: true,
+                showMenuMobile: false,
             }
+        },
+        methods: {
+            createMenuHeader(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    this.showMenuDesktop = false;
+                    this.showMenuMobile = true;
+                } else {
+                    this.showMenuDesktop = true;
+                    this.showMenuMobile = false;
+                }
+            }
+        },
+        mounted() {
+            const mediaQuerieLoading = this.mediaQuerieList;
+
+            this.createMenuHeader(mediaQuerieLoading);
+
+            mediaQuerieLoading.addListener(this.createMenuHeader)
         }
     }
 
