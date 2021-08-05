@@ -12,7 +12,7 @@
                     v-for="button in buttonsHeader"
                     :key="button.id"
                     :textName="button.text"
-                    :typeButton="button.type"
+                    :typeButton="button.types.desktop"
                 />
             </nav>
         </div>
@@ -39,12 +39,18 @@
             <div id="triangle">
 
             </div>
+            <AgencyHeaderButton
+                v-for="button in buttonsHeader"
+                :key="button.id"
+                :textName="button.text"
+                :typeButton="button.types.mobile"
+            />
         </div>
     </div>
 </template>
 
 <script>
-    import AgencyHeaderButton from '../header/AgencyHeaderButton.vue';
+    import AgencyHeaderButton from './AgencyHeaderButton.vue';
 
     export default {
         name: "AgencyHeader",
@@ -57,22 +63,34 @@
                     {
                         id: 1,
                         text: "About",
-                        type: "normal",
+                        types: {
+                            desktop: "normal-desktop",
+                            mobile: "normal-mobile"
+                        },
                     },
                     {
                         id: 2,
                         text: "Services",
-                        type: "normal",
+                        types: {
+                            desktop: "normal-desktop",
+                            mobile: "normal-mobile"
+                        },
                     },
                     {
                         id: 3,
                         text: "Projects",
-                        type: "normal",
+                        types: {
+                            desktop: "normal-desktop",
+                            mobile: "normal-mobile"
+                        },
                     },
                     {
                         id: 4,
                         text: "Contact",
-                        type: "strong",
+                        types: {
+                            desktop: "strong-desktop",
+                            mobile: "strong-mobile"
+                        },
                     }
                 ],
                 mediaQuerieList: matchMedia("(max-width: 650px)"),
@@ -95,9 +113,7 @@
         },
         mounted() {
             const mediaQuerieLoading = this.mediaQuerieList;
-
             this.createMenuHeader(mediaQuerieLoading);
-
             mediaQuerieLoading.addListener(this.createMenuHeader)
         }
     }
@@ -123,19 +139,24 @@
 
         margin-left: 30px;
     }
-
+    
     nav#navigation-buttons, 
     header#AgencyHeader,
-    div#menu-mobile {
+    div#menu-mobile,
+    div#menu-buttons 
+    {
         display: flex;
         align-items: center;
     }
 
-    nav#navigation-buttons {
+    nav#navigation-buttons
+    {
         justify-content: center;
     }
 
-    div#nav-menu-desktop, div#menu-mobile {
+    div#nav-menu-desktop, 
+    div#menu-mobile 
+    {
         margin-right: 30px;
     }
 
@@ -160,7 +181,7 @@
 
     div#window-menu-mobile {
         position: absolute;
-        top: 210px;
+        top: 260px;
         left: 50%;
         transform: translate(-50%, -50%);
 
@@ -173,6 +194,7 @@
     div#triangle {
         width: 0;
         height: 0;
+
         border: 50px solid;
         border-right-color: #ffffff;
         border-left-color: transparent;
@@ -180,16 +202,22 @@
         border-bottom-color: transparent;
 
         position: absolute;
-        top: -20%;
+        top: -10%;
         right: 0%;
     }
 
     div#menu-buttons {
+        flex-direction: column;
+        justify-content: space-around;
+
         width: calc(100% - 50px);
-        height: 200px;
+        height: 300px;
 
         background-color: #ffffff;
 
         position: relative;
+
+        box-sizing: border-box;
+        padding: 10px;
     }
 </style>

@@ -1,17 +1,21 @@
 <template>
-    <button 
+    <div 
         class="AgencyHeaderButton"
         :style="styleButton"
         ref="button"   
     >
-        <span :style="styleStrong.color">{{ 
+        <a 
+            :style="styleStrong.color"
+            href="#"
+            class="linkButtonDesktop"
+        >{{ 
             typeButton === "strong" 
             ? 
             textName.toUpperCase() 
             : 
             textName 
-        }}</span>
-    </button>
+        }}</a>
+    </div>
 </template>
 
 <script>
@@ -37,28 +41,49 @@
                     color: "",
                     fontFamily: "",
                     padding: "",
+                    textTransform: "",
+                    fontSize: "",
                 },
             }
         },
         computed: {
             styleButton() {
-                return `${this.styleStrong.backgroundColor} ${this.styleStrong.fontFamily} ${this.styleStrong.padding}`
+                return `${this.styleStrong.backgroundColor} ${this.styleStrong.fontFamily} ${this.styleStrong.padding} ${this.styleStrong.textTransform} ${this.styleStrong.fontSize}`
             }
         },
         beforeMount() {
             switch(this.typeButton) {
-                case "normal": 
+                case "normal-desktop": 
                 default: 
                     this.styleStrong.backgroundColor = "";
                     this.styleStrong.color = "";
                     this.styleStrong.fontFamily = "font-family: Barlow, Helvetica, Arial;";
                     this.styleStrong.padding = "";
                     break;
-                case "strong":
+
+                case "strong-desktop":
                     this.styleStrong.backgroundColor = "background-color: var(--white);";
                     this.styleStrong.color = "color: #000000;";
                     this.styleStrong.fontFamily = "font-family: Fraunces, Helvetica, Arial;";
                     this.styleStrong.padding = "padding: 15px 25px;";
+                    this.styleStrong.textTransform = "text-transform: uppercase;";
+                    break;
+
+                case "normal-mobile": 
+                    this.styleStrong.backgroundColor = "";
+                    this.styleStrong.color = "color: hsla(211, 28%, 19%, 0.705);";
+                    this.styleStrong.fontFamily = "font-family: Barlow, Helvetica, Arial;";
+                    this.styleStrong.padding = "";
+                    this.styleStrong.fontSize = "font-size: 20px;";
+                    break;
+
+                case "strong-mobile":
+                    this.styleStrong.backgroundColor = "background-color: var(--yellow);";
+                    this.styleStrong.color = "color: var(--black);";
+                    this.styleStrong.fontFamily = "font-family: Fraunces, Helvetica, Arial;";
+                    this.styleStrong.padding = "padding: 15px 25px;";
+                    this.styleStrong.textTransform = "text-transform: uppercase;";
+                    this.styleStrong.fontSize = "font-size: 20px;";
                     break;
             }
         },
@@ -66,7 +91,7 @@
             let buttonMounted = this.$refs.button;
             let styleMounted = this.styleStrong;
 
-            if(this.typeButton === "strong") {
+            if(this.typeButton === "strong-desktop") {
                 buttonMounted.addEventListener('mouseenter', () => {
                     styleMounted.backgroundColor = "background-color: rgba(255, 255, 255, 0.3);";
                     styleMounted.color = "";
@@ -82,14 +107,9 @@
 </script>
 
 <style scoped>
-    button.AgencyHeaderButton {
+    div.AgencyHeaderButton {
         background-color: transparent;
         color: var(--white);
-
-        border: none;
-        
-        outline: none;
-        box-shadow: none;
 
         display: flex;
         justify-content: center;
@@ -104,5 +124,11 @@
         transition: all 0.2s;
 
         cursor: pointer;
+    }
+
+    a.linkButtonDesktop {
+        text-decoration: none;
+
+        color: inherit;
     }
 </style>
