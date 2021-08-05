@@ -19,6 +19,7 @@
         <div
             v-show="!showMenuDesktop"
             id="nav-menu-mobile"
+            @click="toggleWindowMenu"
         >
             <div id="menu-mobile">
                 <div class="line">
@@ -30,7 +31,10 @@
             </div>
         </div>
     </header>
-    <div id="window-menu-mobile">
+    <div 
+        id="window-menu-mobile"
+        v-show="showWindowMenu"
+    >
         <div id="menu-buttons">
             <div id="triangle">
 
@@ -73,7 +77,7 @@
                 ],
                 mediaQuerieList: matchMedia("(max-width: 650px)"),
                 showMenuDesktop: true,
-                showMenuMobile: false,
+                showWindowMenu: false,
             }
         },
         methods: {
@@ -82,7 +86,11 @@
                     this.showMenuDesktop = false;
                 } else {
                     this.showMenuDesktop = true;
+                    this.showWindowMenu = false;
                 }
+            },
+            toggleWindowMenu() {
+                this.showWindowMenu = !this.showWindowMenu;
             }
         },
         mounted() {
