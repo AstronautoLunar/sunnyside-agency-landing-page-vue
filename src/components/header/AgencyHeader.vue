@@ -17,11 +17,26 @@
             </nav>
         </div>
         <div
-            v-show="showMenuMobile"
+            v-show="!showMenuDesktop"
+            id="nav-menu-mobile"
         >
-            <h1>Hello World</h1>
+            <div id="menu-mobile">
+                <div class="line">
+                </div>
+                <div class="line">
+                </div>
+                <div class="line">
+                </div>
+            </div>
         </div>
     </header>
+    <div id="window-menu-mobile">
+        <div id="menu-buttons">
+            <div id="triangle">
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -65,10 +80,8 @@
             createMenuHeader(mediaQuerieList) {
                 if(mediaQuerieList.matches) {
                     this.showMenuDesktop = false;
-                    this.showMenuMobile = true;
                 } else {
                     this.showMenuDesktop = true;
-                    this.showMenuMobile = false;
                 }
             }
         },
@@ -104,17 +117,71 @@
     }
 
     nav#navigation-buttons, 
-    header#AgencyHeader {
+    header#AgencyHeader,
+    div#menu-mobile {
         display: flex;
         align-items: center;
     }
 
     nav#navigation-buttons {
         justify-content: center;
-
-        margin-right: 30px;
-
-
     }
 
+    div#nav-menu-desktop, div#menu-mobile {
+        margin-right: 30px;
+    }
+
+    div#menu-mobile {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    div#menu-mobile > div.line {
+        width: 30px;
+        height: 2px;
+
+        background-color: rgba(255, 255, 255, 0.8);
+
+        margin-bottom: 5px;
+    }
+
+    div#menu-mobile > div.line:last-of-type {
+        margin-bottom: 0;
+    }
+
+
+    div#window-menu-mobile {
+        position: absolute;
+        top: 210px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    div#triangle {
+        width: 0;
+        height: 0;
+        border: 50px solid;
+        border-right-color: #ffffff;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+
+        position: absolute;
+        top: -20%;
+        right: 0%;
+    }
+
+    div#menu-buttons {
+        width: calc(100% - 50px);
+        height: 200px;
+
+        background-color: #ffffff;
+
+        position: relative;
+    }
 </style>
