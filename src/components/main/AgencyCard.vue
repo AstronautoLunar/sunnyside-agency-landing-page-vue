@@ -101,7 +101,7 @@
 
     /* Adaptações de tela */
 
-    @media screen and (max-width: 809px) {
+    @media screen and (max-width: 942px) {
         section.AgencyCard > article, section.AgencyCard {
             width: 100%;
         }

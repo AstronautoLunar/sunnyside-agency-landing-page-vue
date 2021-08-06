@@ -250,11 +250,12 @@
   }
 
   div#background-main, 
-  main#main, 
   div#app,
-  section#cards-client-area,
   div#cards-clients,
   div#images-spotlight,
+  main#main, 
+  section#cards-client-area,
+  section.cards-image,
   footer#footer
   {
     width: 100%;
@@ -321,25 +322,10 @@
   }
 
   section.cards-image {
-    width: 100%;
-  }
-
-  h2.title-card-image {
-    font-size: 30px;
-  }
-
-  h2.title-card-image, 
-  p.paragraphy-card-image 
-  {
-    text-align: center;
-
-    opacity: 0.6;
-  }
-
-  p.paragraphy-card-image {
-    width: 400px;
-
-    line-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   section#cards-client-area {
@@ -414,7 +400,7 @@
     width: 150px;
   }
 
-  @media screen and (max-width: 809px) {
+  @media screen and (max-width: 942px) {
     /* h1.title-card {
       width: auto;
       

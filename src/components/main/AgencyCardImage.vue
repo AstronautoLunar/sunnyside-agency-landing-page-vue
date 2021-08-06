@@ -41,6 +41,10 @@
 
 <style scoped>
     div.AgencyCardImage {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
         width: 50%;
         height: 38vw;
 
@@ -48,15 +52,11 @@
     }
 
     img.image-card {
-        object-fit: cover;
-
         width: 100%;
         height: 38vw;
-    }
-
-    img.image-card {
-        width: 100%;
     
+        object-fit: cover;
+
         position: absolute;
         top: 0;
         left: 0;
@@ -70,10 +70,7 @@
         
         width: 100%;
 
-        position: absolute;
-        bottom: -15%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        margin-bottom: 40px;
     }
     
     h2.title-card-image {
@@ -82,17 +79,38 @@
 
     h2.title-card-image, p.paragraphy-card-image {
         opacity: 0.6;
+
+        text-align: center;
     }
 
     p.paragraphy-card-image {
-        margin: 30px 0;
+        margin: 30px;
 
         line-height: 30px;
     }
 
-    @media screen and (max-width: 809px) {
+    @media screen and (max-width: 942px) {
         p.paragraphy-card-image {
             width: auto;
+        }
+    }
+
+    @media screen and (max-width: 886px) {
+        div.AgencyCardImage, 
+        img.image-card 
+        {
+            width: 100%;
+            height: 150vw;
+        }
+
+        article.article {
+            margin-bottom: 15vw;
+        }
+    }
+
+    @media screen and (max-width: 410px) {
+        article.article {
+            margin-bottom: 5vw;
         }
     }
 </style>
