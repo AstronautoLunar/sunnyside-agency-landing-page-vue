@@ -49,7 +49,7 @@
 <style scoped>
     div.AgencyCardClient {
         
-        height: 400px;
+        height: 300px;
     }
 
     div.AgencyCardClient > span {

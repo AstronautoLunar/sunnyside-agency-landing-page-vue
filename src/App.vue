@@ -344,6 +344,8 @@
     font-size: 15px;
 
     margin-bottom: 50px;
+
+    text-align: center;
   }
 
   section#cards-client-area,
@@ -401,12 +403,6 @@
   }
 
   @media screen and (max-width: 942px) {
-    /* h1.title-card {
-      width: auto;
-      
-      margin-right: auto;
-    } */
-
     main#main {
       flex-direction: column;
       justify-content: center;
@@ -418,6 +414,14 @@
 
     h1.title-card, p.paragraph-card {
       text-align: center;
+    }
+
+    div#cards-clients {
+      flex-direction: column;
+    }
+
+    section#cards-client-area {
+      padding: 150px 0 100px;
     }
   }
 </style>
