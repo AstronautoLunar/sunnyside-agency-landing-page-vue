@@ -1,12 +1,8 @@
 <template>
     <section class="AgencyCard">
         <article>
-            <slot name="title">
-
-            </slot>
-            <slot name="paragraph">
-
-            </slot>
+            <h1 class="title-card">{{ title }}</h1>
+            <p class="paragraph-card">{{ paragraph }}</p>
             <div class="area-link">
                 <a 
                     ref="linkCard"
@@ -40,6 +36,14 @@
             colorBorder: {
                 type: String,
                 required: true,
+            },
+            title: {
+                type: String,
+                required: true,
+            },
+            paragraph: {
+                type: String,
+                required: true,
             }
         },
         data() {
@@ -58,6 +62,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    h1.title-card {
+        font-size: 35px;
+        font-weight: bold;
+
+        width: 350px;
+
+        margin-bottom: 35px;
+
+        font-family: Fraunces, Helvetica, Arial;
+
+        text-align: center;
+    }
+
+    h1.title-card, p.paragraph-card {
+        text-align: center;
+    }
+
+    p.paragraph-card {
+        font-family: Fraunces, Helvetica, Arial;
+
+        color: var(--dark-grayish-blue);
+
+        margin-bottom: 45px;
     }
 
     section.AgencyCard > article {
@@ -108,10 +137,7 @@
         section.AgencyCard > article 
         {
             width: 100%;
-        }
-
-        section.AgencyCard {
-            height: 100vw;
+            height: auto;
         }
 
         section.AgencyCard > article {
@@ -122,6 +148,10 @@
 
             box-sizing: border-box;
             padding: 20px;
+        }
+
+        h1.title-card {
+            width: auto;
         }
     }
 </style>

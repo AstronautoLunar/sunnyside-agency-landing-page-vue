@@ -14,14 +14,9 @@
     <main id="main" role="main">
       <AgencyCard
         colorBorder="hsl(51, 100%, 49%)"
-      >
-        <template #title>
-          <h1 class="title-card">Transform your brand</h1>
-        </template>
-        <template #paragraph>
-          <p class="paragraph-card">We are a full-service agency specializing in helping brands grow fast. Engage your clients through compelling visuals that do most of the marketing for you.</p>
-        </template>
-      </AgencyCard>
+        title="Transform your brand"
+        paragraph="We are a full-service agency specializing in helping brands grow fast. Engage your clients through compelling visuals that do most of the marketing for you."
+      />
       <img
         class="image-main"
         src="./assets/mobile/image-transform.jpg"
@@ -34,14 +29,9 @@
       />
       <AgencyCard
         colorBorder="hsl(7, 99%, 70%)"
-      >
-        <template #title>
-          <h1 class="title-card">Stand out to the right audience</h1>
-        </template>
-        <template #paragraph>
-          <p class="paragraph-card">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we'll build and extend your brand in digital places.</p>
-        </template>
-      </AgencyCard>
+        title="Stand out to the right audience"
+        paragraph="Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we'll build and extend your brand in digital places."
+      />
       <section 
         class="section cards-image" 
         role="section"
@@ -285,33 +275,16 @@
     font-size: 50px;
   }
 
-  h1.title-card {
-    font-size: 35px;
-    font-weight: bold;
-
-    width: 350px;
-
-    margin-bottom: 35px;
-  }
-  
   main#main {
     flex-wrap: wrap;
   }
 
   span#text-background-main, 
-  h1.title-card, 
-  p.paragraph-card,
   h2.title-card-image, 
   p.paragraphy-card-image,
   section#cards-client-area
   {
     font-family: Fraunces, Helvetica, Arial;
-  }
-
-  p.paragraph-card {
-    color: var(--dark-grayish-blue);
-
-    margin-bottom: 45px;
   }
 
   img.image-main {
@@ -383,7 +356,7 @@
 
   div#area-links-text-footer 
   {
-    width: 400px;
+    width: 100vw;
   }
 
   h1#title-footer {
@@ -419,10 +392,6 @@
       height: 100vw;
     }
 
-    h1.title-card, p.paragraph-card {
-      text-align: center;
-    }
-
     div#cards-clients {
       flex-direction: column;
     }
@@ -434,6 +403,12 @@
     div#images-spotlight > img {
       width: 50%;
       height: 45vw;
+    }
+  }
+
+  @media screen and (max-width: 436px) {
+    span#text-background-main {
+      font-size: 10vw;
     }
   }
 </style>
