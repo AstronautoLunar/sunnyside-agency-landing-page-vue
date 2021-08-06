@@ -363,7 +363,13 @@
     justify-content: space-around;
   }
 
+  div#images-spotlight {
+    flex-wrap: wrap;
+  }
+
   div#images-spotlight > img {
+    object-fit: cover;
+
     width: 25%;
   }
 
@@ -410,6 +416,7 @@
 
     img.image-main {
       width: 100%;
+      height: 100vw;
     }
 
     h1.title-card, p.paragraph-card {
@@ -422,6 +429,11 @@
 
     section#cards-client-area {
       padding: 150px 0 100px;
+    }
+
+    div#images-spotlight > img {
+      width: 50%;
+      height: 45vw;
     }
   }
 </style>

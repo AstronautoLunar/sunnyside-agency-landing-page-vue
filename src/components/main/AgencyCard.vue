@@ -79,6 +79,8 @@
         align-items: center;
 
         position: relative;
+
+        margin-bottom: 40px;
     }
 
     div.line-link {
@@ -102,12 +104,14 @@
     /* Adaptações de tela */
 
     @media screen and (max-width: 942px) {
-        section.AgencyCard > article, section.AgencyCard {
+        section.AgencyCard, 
+        section.AgencyCard > article 
+        {
             width: 100%;
         }
 
         section.AgencyCard {
-            height: auto;
+            height: 100vw;
         }
 
         section.AgencyCard > article {
