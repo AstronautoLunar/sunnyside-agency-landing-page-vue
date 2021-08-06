@@ -314,7 +314,10 @@
   }
 
   img.image-main {
+    object-fit: cover;
+
     width: 50%;
+    height: 38vw;
   }
 
   section.cards-image {
