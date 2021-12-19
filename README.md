@@ -1,5 +1,12 @@
 <h1 align="center">Sunnyside Agency Landing Page</h1>
 
+<div align="center">
+ <img
+      src="https://github.com/Pyedrown/sunnyside-agency-landing-page-vue/blob/master/presentation.gif"
+      alt="presentation image"
+ />
+</div>
+
 <p align="center">Solução da plataforma Front-end-mentor</p>
 
 * [Sobre](#Sobre)
